@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const floatingIconsContainer = document.getElementById('floating-icons');
   
   // Replace with your actual deployed Google Apps Script URL
-  const WHITELIST_API_URL = 'https://script.google.com/macros/s/AKfycbys3FbappFLqFEzZQf8NnMv-9MgCRbQEOOsWTQPDqUdDBnc8BwZW_vYuXvggRgFongO/exec';
+  const WHITELIST_API_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
   
   // Array to store whitelisted wallets fetched from Google Sheets
   let whitelistedWallets = [];
