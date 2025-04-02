@@ -1,12 +1,4 @@
-.address-display {
-    font-family: monospace;
-    font-weight: bold;
-    word-break: break-all;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 2px 6px;
-    border-radius: 4px;
-    display: inline-block;
-}:root {
+:root {
     --accent-color: #8A2BE2; /* Purple accent color */
 }
 
