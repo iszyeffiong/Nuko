@@ -83,10 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
           await fetchWhitelist();
       }
       
-      // Display the searched address in the result
-      document.getElementById('success-address').textContent = walletAddress;
-      document.getElementById('error-address').textContent = walletAddress;
-      
       // Check if wallet is whitelisted
       if (whitelistedWallets.includes(walletAddress)) {
           // Wallet is on the waitlist
