@@ -1,0 +1,234 @@
+:root {
+    --accent-color: #8A2BE2; /* Purple accent color */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 500px;
+    padding: 20px;
+    margin: 40px 0;
+}
+
+.logo-text {
+    font-size: 3rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: #ffffff;
+}
+
+/* Removed coming-soon styling */
+
+.waitlist-form {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.wallet-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #111111;
+    color: #ffffff;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.check-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.check-btn:hover {
+    background-color: #6a1fb0; /* Darker version of the accent color */
+}
+
+.result-container {
+    margin-top: 20px;
+    display: none;
+}
+
+.success-message {
+    background-color: rgba(138, 43, 226, 0.1);
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.invalid-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid #ff0033;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid #ff0033;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.social-tasks {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    display: none;
+}
+
+.social-tasks h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.task-icon {
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--accent-color);
+}
+
+.task-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.task-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.task-link:hover {
+    color: var(--accent-color);
+}
+
+/* Floating Social Icons */
+.floating-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0.3;
+    animation: float 15s linear infinite;
+}
+
+.floating-icon:hover {
+    transform: scale(1.2);
+    background-color: rgba(138, 43, 226, 0.2);
+    opacity: 1;
+    z-index: 10;
+}
+
+.floating-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: rgba(138, 43, 226, 0.7);
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(var(--x1), var(--y1));
+    }
+    50% {
+        transform: translate(var(--x2), var(--y2));
+    }
+    75% {
+        transform: translate(var(--x3), var(--y3));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@media (max-width: 480px) {
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .task-icon {
+        margin-bottom: 10px;
+    }
+}

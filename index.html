@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuko - Unlocking a new era</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-icons" id="floating-icons">
+        <!-- Social media icons will be dynamically added here with JavaScript -->
+    </div>
+
+    <div class="container">
+        <div class="logo-text">Nuko</div>
+        
+        <div class="tagline">Check if your wallet is whitelisted</div>
+        
+        <!-- Coming Soon text removed -->
+        
+        <div class="waitlist-form">
+            <input type="text" class="wallet-input" id="wallet-address" placeholder="Enter your Ethereum wallet address (0x...)">
+            <button class="check-btn" id="check-waitlist">Check Whitelist Status</button>
+        </div>
+        
+        <div class="result-container" id="result-container">
+            <div class="success-message" id="success-message">
+                <h3>🎉 Congratulations!</h3>
+                <p>Your wallet is on our whitelist! You're all set for the upcoming launch.</p>
+            </div>
+            
+            <div class="invalid-message" id="invalid-message">
+                <h3>Invalid Wallet Address</h3>
+                <p>Please enter a valid Ethereum wallet address starting with "0x".</p>
+            </div>
+            
+            <div class="error-message" id="error-message">
+                <h3>Wallet Not Found</h3>
+                <p>Your wallet address is not on our waitlist yet. Complete the tasks below to join!</p>
+            </div>
+            
+            <div class="social-tasks" id="social-tasks">
+                <h3>Join the Waitlist</h3>
+                <p>Complete these tasks to get on our waitlist:</p>
+                
+                <div class="task-item">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1522 12.8955L4 20H5.38122L10.7653 13.7878L15.0491 20H19.7111L13.3171 10.7749H13.3174ZM11.4822 12.9738L10.9082 12.0881L5.96738 5.03974H7.97256L11.9234 10.7402L12.4974 11.6259L17.7371 19.0075H15.7319L11.4822 12.9742V12.9738Z"/>
+                        </svg>
+                    </div>
+                    <div class="task-text">
+                        <a href="https://twitter.com/nuko" target="_blank" class="task-link">Follow us on Twitter/X</a>
+                    </div>
+                </div>
+                
+                <div class="task-item">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.04.01-.19-.07-.27-.08-.08-.21-.05-.3-.03-.13.03-2.2 1.4-6.22 4.12-.59.4-1.12.6-1.6.58-.53-.02-1.54-.3-2.3-.55-.93-.31-1.67-.47-1.61-.99.03-.27.38-.54 1.03-.83 4.04-1.75 6.73-2.92 8.08-3.49 3.85-1.67 4.65-1.96 5.17-1.97.12 0 .37.03.54.17.14.12.18.28.2.46-.02.18.05.37-.05.66z"/>
+                        </svg>
+                    </div>
+                    <div class="task-text">
+                        <a href="https://t.me/nuko" target="_blank" class="task-link">Join our Telegram group</a>
+                    </div>
+                </div>
+                
+                <div class="task-item">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.9999 5.00001C19.9999 5.00001 12.7145 0.589913 8.40005 5.00001C4.40005 5.00001 -1.00006 10 2.99998 17.7778C6.99998 25.5556 16.0952 22.5 17 21.75C17.9047 21 13.9999 19.75 13.4999 19.25C12.9999 18.75 17.9999 18.5 19.4999 14C20.9999 9.50001 19.9999 5.00001 19.9999 5.00001ZM9.38932 15.301C8.58709 15.301 7.93599 14.5979 7.93599 13.741C7.93599 12.8842 8.58709 12.1811 9.38932 12.1811C10.1916 12.1811 10.8427 12.8842 10.8427 13.741C10.8427 14.5979 10.1916 15.301 9.38932 15.301ZM14.9001 15.301C14.0979 15.301 13.4468 14.5979 13.4468 13.741C13.4468 12.8842 14.0979 12.1811 14.9001 12.1811C15.7023 12.1811 16.3534 12.8842 16.3534 13.741C16.3534 14.5979 15.7023 15.301 14.9001 15.301Z"/>
+                        </svg>
+                    </div>
+                    <div class="task-text">
+                        <a href="https://discord.gg/nuko" target="_blank" class="task-link">Join our Discord server</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
