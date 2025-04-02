@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const floatingIconsContainer = document.getElementById('floating-icons');
   
   // Replace with your actual deployed Google Apps Script URL
-  const WHITELIST_API_URL = 'https://script.google.com/macros/s/AKfycbys3FbappFLqFEzZQf8NnMv-9MgCRbQEOOsWTQPDqUdDBnc8BwZW_vYuXvggRgFongO/exec';
+  const WHITELIST_API_URL = '';
   
-  // Start with fallback address already in the array
-  let whitelistedWallets = ['0x0000000000000000000000000000000000000000'];
+  // Array to store whitelisted wallets fetched from Google Sheets
+  let whitelistedWallets = [];
   
   // Fetch wallet addresses from Google Sheets
   async function fetchWhitelist() {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
           checkButton.disabled = true;
           checkButton.textContent = 'Loading Whitelist...';
           
-          console.log('Attempting to fetch whitelist...');
+          console.log('Fetching whitelist...');
           const response = await fetch(WHITELIST_API_URL);
           
           if (!response.ok) {
@@ -28,27 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
           const data = await response.json();
-          
-          if (data.addresses && data.addresses.length > 0) {
-              whitelistedWallets = data.addresses;
-              console.log(`Loaded ${whitelistedWallets.length} addresses from API`);
-          } else {
-              console.log('No addresses returned from API, using fallback');
-          }
-          
-      } catch (error) {
-          console.error('Error fetching whitelist:', error);
-          console.log('Using fallback address due to error');
-      } finally {
-          // Always ensure the fallback address is included
-          if (!whitelistedWallets.includes('0x0000000000000000000000000000000000000000')) {
-              whitelistedWallets.push('0x0000000000000000000000000000000000000000');
-          }
+          whitelistedWallets = data.addresses || [];
           
           checkButton.disabled = false;
           checkButton.textContent = 'Check Whitelist Status';
           
-          console.log('Final whitelist addresses:', whitelistedWallets);
+          console.log(`Loaded ${whitelistedWallets.length} addresses`);
+      } catch (error) {
+          console.error('Error:', error);
+          checkButton.disabled = false;
+          checkButton.textContent = 'Check Whitelist Status';
+          
+          // Only use this one address as fallback
+          whitelistedWallets = ['0x0000000000000000000000000000000000000000'];
       }
   }
   
@@ -79,32 +71,21 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
       }
       
+      // If whitelist empty, try to fetch it now
+      if (whitelistedWallets.length === 0) {
+          await fetchWhitelist();
+      }
+      
       // Display the address in result messages
       document.getElementById('success-address').textContent = walletAddress;
       document.getElementById('error-address').textContent = walletAddress;
       
-      console.log('Current whitelist:', whitelistedWallets);
-      console.log('Is address in whitelist?', whitelistedWallets.includes(walletAddress));
-      
-      // Check if wallet is whitelisted (both exact match and case-insensitive)
+      // Check if wallet is whitelisted (compare exactly as is)
       if (whitelistedWallets.includes(walletAddress)) {
-          // Exact match found
-          console.log('Address found (exact match)');
           successMessage.style.display = 'block';
       } else {
-          // Try case-insensitive match as a fallback
-          const lowerAddress = walletAddress.toLowerCase();
-          const foundCaseInsensitive = whitelistedWallets.some(addr => 
-              addr.toLowerCase() === lowerAddress);
-          
-          if (foundCaseInsensitive) {
-              console.log('Address found (case-insensitive match)');
-              successMessage.style.display = 'block';
-          } else {
-              console.log('Address not found in whitelist');
-              errorMessage.style.display = 'block';
-              socialTasks.style.display = 'block';
-          }
+          errorMessage.style.display = 'block';
+          socialTasks.style.display = 'block';
       }
       
       // Clear input field for next search
