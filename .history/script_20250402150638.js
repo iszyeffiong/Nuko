@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const floatingIconsContainer = document.getElementById('floating-icons');
   
   // Your Google Apps Script web app URL
-  const WHITELIST_API_URL = 'https://script.google.com/macros/s/AKfycbwVthVrwG68jpXPwp5WCJqfPdlaK49D6aoysaM5aUwcs220cpQEb9W9nkhGWBJTpV7Q/exec';
+  const WHITELIST_API_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
   
   // Start with fallback address
   let whitelistedWallets = ['0x0000000000000000000000000000000000000000'];
